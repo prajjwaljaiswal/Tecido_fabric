@@ -1,0 +1,23 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.navbar-items{
+    list-style: none;
+}
+
+.navbar-items li{
+    margin: 10px 0;
+    font-size: 18px;
+    padding: 8px;
+}
+
+.navbar-items li:hover{
+    border: 1px solid #ccc;
+}
+
+.navbar-items li.active{
+    border: 1px solid #ccc;
+}
