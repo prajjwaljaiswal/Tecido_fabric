@@ -20,6 +20,29 @@
                 })
             });
 
+
+             // Add new sales form
+            
+            $("#add-sales").submit(function(e){
+                e.preventDefault();
+                $.ajax({
+                    type : "POST",
+                    url : "php/add_new_sales.php",
+                    data : new FormData(this),
+                    contentType : false,
+                    processData : false,
+                    beforeSend : function(){
+                        $(".new-btn").html("<i class='fa fa-spinner fa-spin'></i>");
+                    },
+                    success : function(response){
+                        $("#add-sales").trigger('reset');
+                        $(".new-btn").html("Add This Customer");
+                        alert(response);
+                    }
+
+                })
+            });
+
 // Add Daeyable fabrics
 
 $("#add_dae_fabrics").submit(function(e){
@@ -76,7 +99,7 @@ $(document).ready(function(){
                 },
                 success : function(response){
                     edit_icon[1].innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity table-cancel1"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>';
-                    alert(response);
+                    window.location.href = "http://localhost/Tecido/new-admin/php/edit_new_dae_fabrics.php";
 
 
                 }
@@ -178,7 +201,7 @@ $("#add_emb_fabrics").submit(function(e){
                     success : function(response){
                         $("#add-user").trigger('reset');
                         $(".new-btn").html("Add This Customer");
-                        alert(response);
+                       window.location.href = "http://localhost/Tecido/new-admin/emb_fabric.php";
                     }
 
                 })
@@ -207,7 +230,6 @@ $(document).ready(function(){
                 },
                 success : function(response){
                     edit_icon[1].innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity table-cancel1"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>';
-                    alert(response);
 
                     window.location.href = "http://localhost/Tecido/new-admin/php/edit_new_emb_fabrics.php";
                 }
@@ -307,7 +329,7 @@ $(document).ready(function(){
                 },
                 success : function(response){
                     edit_icon[1].innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity table-cancel1"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>';
-                    alert(response);
+                   
 
                     window.location.href = "http://localhost/Tecido/new-admin/php/edit_new_imp_fabrics.php";
                 }
@@ -377,7 +399,6 @@ $("#add_vel_fabrics").submit(function(e){
                     },
                     success : function(response){
                         $(".new-btn").html("Add This Customer");
-                        alert(response);
                         window.location.href = "http://localhost/Tecido/new-admin/vel_fabric.php";
                     }
 
@@ -408,8 +429,6 @@ $(document).ready(function(){
                 },
                 success : function(response){
                     edit_icon[1].innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity table-cancel1"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>';
-                    alert(response);
-
                     window.location.href = "http://localhost/Tecido/new-admin/php/edit_new_vel_fabrics.php";
                 }
             })

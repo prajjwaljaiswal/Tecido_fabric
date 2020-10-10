@@ -11,6 +11,8 @@ $fabric_name =  mysqli_real_escape_string($db,$_POST['fabric_name']);
  $design_name_color =  mysqli_real_escape_string($db,$_POST['design_name_color']);
  $weight_feel =  mysqli_real_escape_string($db,$_POST['weight_feel']);
   $price =  mysqli_real_escape_string($db,$_POST['price']);
+  $description = mysqli_real_escape_string($db,$_POST['description']);
+  $full_description = mysqli_real_escape_string($db,$_POST['full_description']);
   $files = array_filter($_FILES['upload']['name']);
     $total = count($_FILES['upload']['name']);
    
@@ -20,7 +22,7 @@ $fabric_name =  mysqli_real_escape_string($db,$_POST['fabric_name']);
     $id = rand(1,1000);
     $message = "";
     $design_no = $design_no."_".$id;
-    $update_query = "UPDATE vel_fabric SET fabric_type = '$type', fabric_name = '$fabric_name', weave = '$weave', width = '$width', content = '$content', design_no = '$design_no', desgin_name_color = '$design_name_color', weight_feel = '$weight_feel', price = '$price' WHERE design_no = '$ses_design_no'";
+    $update_query = "UPDATE vel_fabric SET fabric_type = '$type', fabric_name = '$fabric_name', weave = '$weave', width = '$width', content = '$content', design_no = '$design_no', desgin_name_color = '$design_name_color', weight_feel = '$weight_feel',description = '$description', full_description = '$full_description', price = '$price' WHERE design_no = '$ses_design_no'";
 
  if($db->query($update_query))
  { 

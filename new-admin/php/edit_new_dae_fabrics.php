@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 session_start();
 $fabrics_type = $_SESSION['fabrics_type'];
 $fabric_name = $_SESSION['fabric_name'];
@@ -9,6 +10,8 @@ $design_no = $_SESSION['design_no'];
 $content = $_SESSION['content'];
 $weight_feel = $_SESSION['weight_feel'];
 $price = $_SESSION['price'];
+$description = $_SESSION['description'];
+$full_description = $_SESSION['full_description'];
 
   
 echo '<!DOCTYPE html>
@@ -289,6 +292,18 @@ echo '<!DOCTYPE html>
                                                         <div class="col-md-12 mb-2">
                                                             <label for="exampleFormControlTextarea1">Weight/Feel</label>
                                                             <textarea class="form-control weight_feel" name="weight_feel" id="exampleFormControlTextarea1" rows="5" placeholder="Lighyweight & semi Sheer/used for making dresses, skirts, kurti,sarrees, etc." value="'.$weight_feel.'"></textarea>
+                                                        </div>
+
+                                                        <div class="col-md-12 mb-2">
+                                                            <label for="exampleFormControlTextarea1">Product Description</label>
+                                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="...." name="description">'.$description.'</textarea>
+                                                        </div>
+                                                       
+                                                        <div class="col-md-12 mb-2">
+                                                            <label for="exampleFormControlTextarea1"></label>
+                                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="..." name="full_description">
+                                                                '.$full_description.'
+                                                            </textarea>
                                                         </div>
                                                        
                                                     </div>

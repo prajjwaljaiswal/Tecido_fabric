@@ -9,6 +9,8 @@ $fabric_name =  mysqli_real_escape_string($db,$_POST['fabric_name']);
  $design_name_color =  mysqli_real_escape_string($db,$_POST['design_name_color']);
  $weight_feel =  mysqli_real_escape_string($db,$_POST['weight_feel']);
   $price =  mysqli_real_escape_string($db,$_POST['price']);
+   $description =  mysqli_real_escape_string($db,$_POST['description']);
+    $full_description =  mysqli_real_escape_string($db,$_POST['full_description']);
   $files = array_filter($_FILES['upload']['name']);
     $total = count($_FILES['upload']['name']);
    
@@ -18,10 +20,13 @@ $fabric_name =  mysqli_real_escape_string($db,$_POST['fabric_name']);
     $id = rand(1,1000);
     $message = "";
     $design_no = $design_no."_".$id;
-    $insert_data = "INSERT INTO dayeble_fabric(fabric_type,fabric_name,weave,width,content,design_no,design_name_color,weight_feel,price)VALUES('$type','$fabric_name','$weave','$width','$content','$design_no','$design_name_color','$weight_feel','$price')";
+    $insert_data = "INSERT INTO dayeble_fabric(fabric_type,fabric_name,weave,width,content,design_no,design_name_color,weight_feel,price,description,full_description)VALUES('$type','$fabric_name','$weave','$width','$content','$design_no','$design_name_color','$weight_feel','$price','$description','$full_description')";
 
  if($db->query($insert_data))
  { 
+
+  // $select_id = "SELECT * FROM dayeble_fabric ORDER BY id DESC LIMIT 1";
+  // $response_id = $db->query()
 
  
   if(!file_exists("uploadFiles/".$type))

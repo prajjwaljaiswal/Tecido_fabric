@@ -7,6 +7,7 @@ $response = $query->get_result();
 if($response ->num_rows != 0)
 {
    $data = $response->fetch_assoc();
+   $id = $data['id'];
    $fabric_type = $data['fabric_type'];
    $fabric_name = $data['fabric_name'];
    $db_design_no = $data['design_no'];
@@ -28,6 +29,7 @@ $response = $query->get_result();
 if($response ->num_rows != 0)
 {
    $data = $response->fetch_assoc();
+    $id = $data['id'];
    $fabric_type = $data['fabric_type'];
    $fabric_name = $data['fabric_name'];
    $db_design_no = $data['design_no'];
@@ -48,6 +50,7 @@ $response = $query->get_result();
 if($response ->num_rows != 0)
 {
    $data = $response->fetch_assoc();
+    $id = $data['id'];
    $fabric_type = $data['fabric_type'];
    $fabric_name = $data['fabric_name'];
    $db_design_no = $data['design_no'];
@@ -71,6 +74,7 @@ if($response ->num_rows != 0)
    $fabric_type = $data['fabric_type'];
    $fabric_name = $data['fabric_name'];
    $db_design_no = $data['design_no'];
+   $id = $data['id'];
    $weave = $data['weave'];
    $width = $data['width'];
    $content = $data['content'];
@@ -453,24 +457,23 @@ echo '
                                     <th>No</th>
                                     <th>Fabric</th>
                                     <th>Type</th>
+                                    <th>Weave</th>
+                                    <th>Width</th>
+                                    <th>Content</th>
+                                    <th>Price</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Mostarizing Oil</td>
-                                    <td>Pending</td>
+                                    <td>'.$id.'</td>
+                                    <td>'.$fabric_name.'</td>
+                                    <td>'.$fabric_type.'</td>
+                                    <td>'.$weave.'</td>
+                                    <td>'.$width.'</td>
+                                    <td>'.$content.'</td>
+                                    <td id="td_price">'.$price.'</td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Katopeno Altuni</td>
-                                    <td>Approved</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Murikhete Paris</td>
-                                    <td>On Hold</td>
-                                </tr>
+                            
                             </tbody>
                         </table>
                         <div class="product-quantity-cart-wishlist-compare flex-wrap">
@@ -488,8 +491,6 @@ echo '
                         </div>
 
                         <div class="product-description">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elementum turpis in leo eleifend ultrices. Fusce egestas vehi</p>
-
                             <ul class="description-list">
                               <li class="fabric_name">'.$fabric_name.'</li>
                                 <li class="weave">'.$weave.'</li>
@@ -523,272 +524,31 @@ echo '
 
     <!--====== Product Simple Ends ======-->
 
-    <!--====== Product Description & Review Start ======-->
-
-    <section class="product-description-review pt-150">
-        <div class="container">
-            <div class="product-simple-tab-menu">
-                <ul class="nav justify-content-center">
-                    <li><a class="active" data-toggle="tab" href="#description">Description</a></li>
-                    <li><a data-toggle="tab" href="#review">Review (3)</a></li>
-                </ul>
+     <!--====== Product Description & Review Start ======-->
+    <div class="container mt-100 mb-100">
+            <div class="row">
+                <div class="description text-center">
+                    <h3>Full Description</h3>
+                        <p>Donec laoreet bibendum rutrum. Nulla facilisi. Proin in lacinia dolor. Cras arcu lacus, pulvinar at molestie luctus, blandit at libero. Vivamus semper congue mauris, et lobortis mauris ultrices nec. Nulla et sodales
+                            leo. Praesent facilisis elit nec ornare feugiat <br> <br> Donec eu neque blandit, vestibulum felis accumsan, ullamcorper ipsum. Nunc rhoncus, augue interdum sagittis dignissim, nibh tortor sodales ex, pretium maximus
+                            libero turpis varius purus. Pellentesque condimentum, lacus vel accumsan consequat, velit augue</p>
+                    </div>
             </div>
-            <div class="tab-content pt-30">
-                <div class="tab-pane fade show active" id="description">
-                    <div class="product-description">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="description">
-                                    <p>Donec laoreet bibendum rutrum. Nulla facilisi. Proin in lacinia dolor. Cras arcu lacus, pulvinar at molestie luctus, blandit at libero. Vivamus semper congue mauris, et lobortis mauris ultrices nec. Nulla et sodales
-                                        leo. Praesent facilisis elit nec ornare feugiat <br> <br> Donec eu neque blandit, vestibulum felis accumsan, ullamcorper ipsum. Nunc rhoncus, augue interdum sagittis dignissim, nibh tortor sodales ex, pretium maximus
-                                        libero turpis varius purus. Pellentesque condimentum, lacus vel accumsan consequat, velit augue</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="image text-md-right">
-                                    <img src="assets/images/pd-1.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-description">
-                        <div class="row flex-md-row-reverse">
-                            <div class="col-md-6">
-                                <div class="description">
-                                    <p>Donec laoreet bibendum rutrum. Nulla facilisi. Proin in lacinia dolor. Cras arcu lacus, pulvinar at molestie luctus, blandit at libero. Vivamus semper congue mauris, et lobortis mauris ultrices nec. Nulla et sodales
-                                        leo. Praesent facilisis elit nec ornare feugiat <br> <br> Donec eu neque blandit, vestibulum felis accumsan, ullamcorper ipsum. Nunc rhoncus, augue interdum sagittis dignissim, nibh tortor sodales ex, pretium maximus
-                                        libero turpis varius purus. Pellentesque condimentum, lacus vel accumsan consequat, velit augue</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="image text-md-left">
-                                    <img src="assets/images/pd-2.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="review">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="product-review pt-20">
-                                <div class="review-comment">
-                                    <ul class="comment">
-                                        <li>
-                                            <div class="single-review-comment">
-                                                <div class="review-author">
-                                                    <img src="assets/images/auhtor-1.jpg" alt="">
-                                                </div>
-                                                <div class="review-content">
-                                                    <p>“Proin bibendum dolor vitae neque ornare, vel mollis est venenatis. Orci varius natoque penatibus et magnis dis parturient montes, nascet”</p>
-                                                    <div class="review-name-rating">
-                                                        <h6 class="review-name">Rosie Silva</h6>
-                                                        <ul class="review-rating">
-                                                            <li class="rating-on"><i class="fas fa-star"></i></li>
-                                                            <li class="rating-on"><i class="fas fa-star"></i></li>
-                                                            <li class="rating-on"><i class="fas fa-star"></i></li>
-                                                            <li class="rating-on"><i class="fas fa-star"></i></li>
-                                                            <li class="rating-on"><i class="fas fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="single-review-comment">
-                                                <div class="review-author">
-                                                    <img src="assets/images/auhtor-2.png" alt="">
-                                                </div>
-                                                <div class="review-content">
-                                                    <p>“Proin bibendum dolor vitae neque ornare, vel mollis est venenatis. Orci varius natoque penatibus et magnis dis parturient montes, nascet”</p>
-                                                    <div class="review-name-rating">
-                                                        <h6 class="review-name">Rosie Silva</h6>
-                                                        <ul class="review-rating">
-                                                            <li class="rating-on"><i class="fas fa-star"></i></li>
-                                                            <li class="rating-on"><i class="fas fa-star"></i></li>
-                                                            <li class="rating-on"><i class="fas fa-star"></i></li>
-                                                            <li class="rating-on"><i class="fas fa-star"></i></li>
-                                                            <li class="rating-on"><i class="fas fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="single-review-comment">
-                                                <div class="review-author">
-                                                    <img src="assets/images/auhtor-3.png" alt="">
-                                                </div>
-                                                <div class="review-content">
-                                                    <p>“Proin bibendum dolor vitae neque ornare, vel mollis est venenatis. Orci varius natoque penatibus et magnis dis parturient montes, nascet”</p>
-                                                    <div class="review-name-rating">
-                                                        <h6 class="review-name">Rosie Silva</h6>
-                                                        <ul class="review-rating">
-                                                            <li class="rating-on"><i class="fas fa-star"></i></li>
-                                                            <li class="rating-on"><i class="fas fa-star"></i></li>
-                                                            <li class="rating-on"><i class="fas fa-star"></i></li>
-                                                            <li class="rating-on"><i class="fas fa-star"></i></li>
-                                                            <li class="rating-on"><i class="fas fa-star"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="review-form mt-45">
-                                    <h2 class="form-title">Add a review </h2>
+    </div>
 
-                                    <form action="#">
-                                        <div class="rating-star">
-                                            <a href="javascript:void(0)" class="star-1"></a>
-                                            <a href="javascript:void(0)" class="star-2"></a>
-                                            <a href="javascript:void(0)" class="star-3"></a>
-                                            <a href="javascript:void(0)" class="star-4"></a>
-                                            <a href="javascript:void(0)" class="star-5"></a>
-                                        </div>
-                                        <div class="review-textarea">
-                                            <label>Your Review *</label>
-                                            <textarea></textarea>
-                                        </div>
-                                        <div class="review-btn">
-                                            <a href="#" class="main-btn">Submit</a>
-                                        </div>
-                                        <div class="review-checkbok">
-                                            <input type="checkbox" id="checkbox">
-                                            <label for="checkbox"><span></span> NOTIFY ME OF NEW POSTS BY EMAIL.</label>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="container mt-100 mb-100">
+        <div class="row">
+            <div class="description text-center">
+                <h3>Fabric Description</h3>
+                    <p>Donec laoreet bibendum rutrum. Nulla facilisi. Proin in lacinia dolor. Cras arcu lacus, pulvinar at molestie luctus, blandit at libero. Vivamus semper congue mauris, et lobortis mauris ultrices nec. Nulla et sodales
+                        leo. Praesent facilisis elit nec ornare feugiat <br> <br> Donec eu neque blandit, vestibulum felis accumsan, ullamcorper ipsum. Nunc rhoncus, augue interdum sagittis dignissim, nibh tortor sodales ex, pretium maximus
+                        libero turpis varius purus. Pellentesque condimentum, lacus vel accumsan consequat, velit augue</p>
                 </div>
-            </div>
         </div>
-    </section>
-
+</div>
+<section class="page-banner bg_cover mb-100" style="background-image: url(assets/images/page-banner-4.jpg);">
+</section>
     <!--====== Product Description & Review Ends ======-->
-
-    <!--====== Related Products Start ======-->
-
-    <section class="product-area pt-160 pb-145">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="section-title text-center">
-                        <h2 class="title">Related Products</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row product-active">
-                <div class="col-md-3">
-                    <div class="single-product mt-50">
-                        <div class="product-image">
-                            <div class="image">
-                                <img class="product-1" src="assets/images/product/product-7.jpg" alt="product">
-                                <img class="product-2" src="assets/images/product/product-8.jpg" alt="product">
-                                <a class="link" href="product-simple-01.html"></a>
-                            </div>
-                            <ul class="product-meta text-center">
-                                <li><a data-tooltip="tooltip" data-placement="top" title="Add to Cart" href="#"><i class="fal fa-Shopping-cart"></i></a></li>
-                                <li><a data-tooltip="tooltip" data-placement="top" title="Quick Shop" data-toggle="modal" data-target="#productQuick" href="#"><i class="fal fa-search-plus"></i></a></li>
-                                <li><a data-tooltip="tooltip" data-placement="top" title="Add to Wishlist" href="#"><i class="fal fa-heart"></i></a></li>
-                                <li><a data-tooltip="tooltip" data-placement="top" title="Add to Compare" href="#"><i class="fal fa-repeat-alt"></i></a></li>
-                            </ul>
-                            <span class="discount">40%</span>
-                        </div>
-                        <div class="product-content d-flex justify-content-between">
-                            <div class="product-title">
-                                <h4 class="title"><a href="product-simple-01.html">Basic Contrasting T-Shirt</a></h4>
-                            </div>
-                            <div class="product-price">
-                                <span class="regular-price">£250.00</span>
-                                <span class="sale-price">£200.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="single-product mt-50">
-                        <div class="product-image">
-                            <div class="image">
-                                <img class="product-1" src="assets/images/product/product-9.jpg" alt="product">
-                                <img class="product-2" src="assets/images/product/product-10.jpg" alt="product">
-                                <a class="link" href="product-simple-01.html"></a>
-                            </div>
-                            <ul class="product-meta text-center">
-                                <li><a data-tooltip="tooltip" data-placement="top" title="Add to Cart" href="#"><i class="fal fa-Shopping-cart"></i></a></li>
-                                <li><a data-tooltip="tooltip" data-placement="top" title="Quick Shop" data-toggle="modal" data-target="#productQuick" href="#"><i class="fal fa-search-plus"></i></a></li>
-                                <li><a data-tooltip="tooltip" data-placement="top" title="Add to Wishlist" href="#"><i class="fal fa-heart"></i></a></li>
-                                <li><a data-tooltip="tooltip" data-placement="top" title="Add to Compare" href="#"><i class="fal fa-repeat-alt"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product-content d-flex justify-content-between">
-                            <div class="product-title">
-                                <h4 class="title"><a href="product-simple-01.html">Biker Jacket</a></h4>
-                            </div>
-                            <div class="product-price">
-                                <span class="price">£250.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="single-product mt-50">
-                        <div class="product-image">
-                            <div class="image">
-                                <img class="product-1" src="assets/images/product/product-21.jpg" alt="product">
-                                <img class="product-2" src="assets/images/product/product-22.jpg" alt="product">
-                                <a class="link" href="product-simple-01.html"></a>
-                            </div>
-                            <ul class="product-meta text-center">
-                                <li><a data-tooltip="tooltip" data-placement="top" title="Add to Cart" href="#"><i class="fal fa-Shopping-cart"></i></a></li>
-                                <li><a data-tooltip="tooltip" data-placement="top" title="Quick Shop" data-toggle="modal" data-target="#productQuick" href="#"><i class="fal fa-search-plus"></i></a></li>
-                                <li><a data-tooltip="tooltip" data-placement="top" title="Add to Wishlist" href="#"><i class="fal fa-heart"></i></a></li>
-                                <li><a data-tooltip="tooltip" data-placement="top" title="Add to Compare" href="#"><i class="fal fa-repeat-alt"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product-content d-flex justify-content-between">
-                            <div class="product-title">
-                                <h4 class="title"><a href="product-simple-01.html">Oversized Check Dress</a></h4>
-                            </div>
-                            <div class="product-price">
-                                <span class="price">£150.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="single-product mt-50">
-                        <div class="product-image">
-                            <div class="image">
-                                <img class="product-1" src="assets/images/product/product-23.jpg" alt="product">
-                                <img class="product-2" src="assets/images/product/product-24.jpg" alt="product">
-                                <a class="link" href="product-simple-01.html"></a>
-                            </div>
-                            <ul class="product-meta text-center">
-                                <li><a data-tooltip="tooltip" data-placement="top" title="Add to Cart" href="#"><i class="fal fa-Shopping-cart"></i></a></li>
-                                <li><a data-tooltip="tooltip" data-placement="top" title="Quick Shop" data-toggle="modal" data-target="#productQuick" href="#"><i class="fal fa-search-plus"></i></a></li>
-                                <li><a data-tooltip="tooltip" data-placement="top" title="Add to Wishlist" href="#"><i class="fal fa-heart"></i></a></li>
-                                <li><a data-tooltip="tooltip" data-placement="top" title="Add to Compare" href="#"><i class="fal fa-repeat-alt"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product-content d-flex justify-content-between">
-                            <div class="product-title">
-                                <h4 class="title"><a href="product-simple-01.html">Polyamide Dress With Long Sleeves</a></h4>
-                            </div>
-                            <div class="product-price">
-                                <span class="price">£150.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--====== Related Products Ends ======-->
 
     <!--====== Footer Start ======-->
 
@@ -1010,18 +770,16 @@ echo '
     <!--====== Overlay Start ======-->
 
 
-       <!--  <script type="text/javascript">
+        <script type="text/javascript">
         $(document).ready(function(){
           $("#cart-box").click(function(){
             var add_value = $("#add-count").val();
-            var prod_price = $(".prod-price").html();
-            $(".prod_price").addClass("d-none");
-            $(".prod_price2").removeClass("d-none");
-            $(".prod-price2").html(add_value*prod_price);
+            var prod_price = $("#td_price").html();
+            $(".prod-price").html(Number(add_value)*Number(prod_price));
            
           })
         })
-    </script> -->
+    </script>
     <div class="overlay"></div>
 
     <!--====== Overlay Ends ======-->

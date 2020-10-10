@@ -269,7 +269,7 @@
                                                             <input type="text" class="form-control design_no" name="design_no" id="exampleFormControlInput2" placeholder="4329320" required>
                                                         </div>
                                                         <div class="col-md-12 mb-2">
-                                                            <label for="exampleFormControlInput2">Design NAme/Color</label>
+                                                            <label for="exampleFormControlInput2">Design Name/Color</label>
                                                             <input type="text" class="form-control design_name_color" name="design_name_color" id="exampleFormControlInput2" placeholder="Peach" required>
                                                         </div>
 
@@ -277,11 +277,22 @@
                                                             <label for="exampleFormControlTextarea1">Weight/Feel</label>
                                                             <textarea class="form-control weight_feel" name="weight_feel" id="exampleFormControlTextarea1" rows="5" placeholder="Lighyweight & semi Sheer/used for making dresses, skirts, kurti,sarrees, etc."></textarea>
                                                         </div>
+
+                                                        <div class="col-md-12 mb-2">
+                                                            <label for="exampleFormControlTextarea1">Product Description</label>
+                                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="...." name="description"></textarea>
+                                                        </div>
+
+                                                           <div class="col-md-12 mb-2">
+                                                            <label for="exampleFormControlTextarea1">Fabric Description</label>
+                                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="..." name="full_description"></textarea>
+                                                        </div>
                                                        
                                                     </div>
                                                 </div>
                                                 <div class="col-md-7">
                                                     <div class=" mb-2">
+
                                                         <label for="exampleFormControlInput2">Price</label>
                                                         <input type="number" class="form-control price" name="price" id="exampleFormControlInput2" placeholder="1470 per meter" required>
                                                     </div>

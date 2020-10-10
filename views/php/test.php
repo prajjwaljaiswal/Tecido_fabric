@@ -1,11 +1,11 @@
 <?php
-foreach(scandir(getcwd()."/../../new-admin/php/uploadFiles/Nylon/Best Nylon/1234_283/") as $data)
-	{
+	require("database.php");
+	$select_query = "SELECT * FROM dayeble_fabric ";
+	$response = $db->query($select_query);
 
-		if(filetype("../../new-admin/php/uploadFiles/Nylon/Best Nylon/1234_283/".$data) == "file")
-		{
-			print_r($data);
-		}
+	while($data = $response->fetch_assoc())
+	{
+		echo $data['fabric_type'];
 	}
 
 ?>

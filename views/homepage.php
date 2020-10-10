@@ -310,7 +310,7 @@ if($_SESSION['username'])
                                     <li style="width: 25%;">
                                         <ul class="sub-mega-item">
                                             <li style="margin: 10px 10px;">
-                                                <a class="menu-image" href="product.html">
+                                                <a class="menu-image" href="http://localhost/Tecido/views/shop.php?fabric=emb_fabric&cat=embrodiary_products">
                                                     <img src="img/product-2.jpg" alt="Menu" height="50%">
                                                 </a>
                                             </li>
@@ -319,7 +319,7 @@ if($_SESSION['username'])
                                     <li style="width: 25%;">
                                         <ul class="sub-mega-item">
                                             <li style="margin: 10px 10px;">
-                                                <a class="menu-image" href="product.html">
+                                                <a class="menu-image" href="http://localhost/Tecido/views/shop.php?fabric=imp_fabric&cat=imported_products">
                                                     <img src="img/product-4.jpg" alt="Menu" height="50%">
                                                 </a>
                                             </li>
@@ -328,7 +328,7 @@ if($_SESSION['username'])
                                     <li style="width: 25%;">
                                         <ul class="sub-mega-item">
                                             <li style="margin: 10px 10px;">
-                                                <a class="menu-image" href="product.html">
+                                                <a class="menu-image" href="http://localhost/Tecido/views/shop.php?fabric=vel_fabric&cat=velvet_products">
                                                     <img src="img/product-8.jpg" alt="Menu" height="50%">
                                                 </a>
                                             </li>

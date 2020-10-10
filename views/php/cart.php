@@ -19,7 +19,17 @@ $insert_data = "INSERT INTO cart(username,fabric_type,fabric_name,weave,width,co
 
  if($db->query($insert_data))
  { 
+ 
+ 	$order_data = "INSERT INTO cart_order(username,fabric_type,fabric_name,weave,width,content,design_no,design_name_color,weight_feel,price,qty,img_url)VALUES('$username','$fabric_type','$fabric_name','$weave','$width','$content','$design_no','$design_name_color','$weight_feel','$price','$qty','$img_url')";
+
+
+ if($db->query($order_data))
+ { 
  	echo "Success";
+ }
+ else{
+ 	echo "Cart update Failed !";
+ }
  }
  else{
  	echo "Cart Failed !";

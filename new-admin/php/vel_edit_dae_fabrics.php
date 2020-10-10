@@ -15,6 +15,8 @@
 		$_SESSION['content'] = $data['content'];
 		$_SESSION['weight_feel'] = $data['weight_feel'];
 		$_SESSION['price'] = $data['price'];
+		$_SESSION['description'] = $data['description'];
+		$_SESSION['full_description'] = $data['full_description'];
 		$_SESSION['design_no'] = $data['design_no'];
 		echo $data['design_no'];
 	}

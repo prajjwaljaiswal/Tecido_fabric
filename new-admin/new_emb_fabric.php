@@ -137,10 +137,10 @@
                         </a>
                         <ul class="collapse submenu list-unstyled" id="app" data-parent="#accordionExample">
                             <li>
-                                <a href="product_iphone.html"> New Orders </a>
+                                <a href="newOrder.php"> New Orders </a>
                             </li>
                             <li>
-                                <a href="product_watch.html"> No sale orders </a>
+                                <a href="noSaleOrder.php"> No sale orders </a>
                             </li>
                             <li>
                                  
@@ -250,13 +250,23 @@
                                                             <input type="number" class="form-control" name="design_no" id="exampleFormControlInput2" placeholder="4329320">
                                                         </div>
                                                         <div class="col-md-12 mb-2">
-                                                            <label for="exampleFormControlInput2">Design NAme/Color</label>
+                                                            <label for="exampleFormControlInput2">Design Name/Color</label>
                                                             <input type="text" class="form-control" name="design_name_color" id="exampleFormControlInput2" placeholder="Peach">
                                                         </div>
 
                                                         <div class="col-md-12 mb-2">
                                                             <label for="exampleFormControlTextarea1">Weight/Feel</label>
                                                             <textarea class="form-control" name="weight_feel" id="exampleFormControlTextarea1" rows="5" placeholder="Lighyweight & semi Sheer/used for making dresses, skirts, kurti,sarrees, etc."></textarea>
+                                                        </div>
+
+                                                        <div class="col-md-12 mb-2">
+                                                            <label for="exampleFormControlTextarea1">Product Description</label>
+                                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="...." name="description"></textarea>
+                                                        </div>
+                                                       
+                                                        <div class="col-md-12 mb-2">
+                                                            <label for="exampleFormControlTextarea1">Fabric Description</label>
+                                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="..." name="full_description"></textarea>
                                                         </div>
                                                        
                                                     </div>

@@ -208,11 +208,7 @@
         <div class="container">
             <div class="page-banner-content text-center mt-70">
                 <h2 class="title">Cart</h2>
-                <ol class="breadcrumb justify-content-center">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="shop.html">Shop</a></li>
-                    <li class="breadcrumb-item active">Cart</li>
-                </ol>
+                <p id="username">tecido@gmail.com</p>
             </div>
         </div>
     </section>
@@ -228,11 +224,13 @@
                     <thead>
                         <tr>
                             <th class="delete"></th>
+                            
                             <th class="product">Fabric</th>
                             <th class="type">Fabric Type</th>
                             <th class="quantity">qty</th>
                             <th class="Total">Price</th>
                             <th class="design_no">Design Number</th>
+                            <th>Product Id</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -256,38 +254,37 @@
                             <td class="delete">
                                 <a class="product-delete"><i class="far fa-trash-alt"></i></a>
                             </td>
+                          
+
                             <td class="product">
                                 <div class="cart-product">
                                     <div class="product-image">
                                         <img src="'.$data['img_url'].'" alt="">
                                     </div>
                                     <div class="product-content">
-                                        <h5 class="title"><a href="product-simple-01.html" id="fabric_name">'.$data['fabric_name'].'</a></h5>
+                                        '.$data['fabric_name'].'
                                     </div>
                                 </div>
                             </td>
-                            <td class="" id="fabric_type">
+                            <td class="" data["id"]="fabric_type">
                                 '.$data['fabric_type'].'
                             </td>
                             <td class="quantity">
-                                <div class="product-quantity d-inline-flex">
-                                    <button type="button" class="sub"><i class="fal fa-minus"></i></button>
-                                    <input type="text" value="'.$data['qty'].'" id="add-value" />
-                                    <button type="button" class="add"><i class="fal fa-plus"></i></button>
-                                </div>
+                               '.$data['qty'].'
                             </td>
                             <td class="Total">
-                                <p class="cart-price" id="price">₹ '.$data['price'].'</p>
+                              '.$data['price'].'
                             </td>
 
                             <td class="design_no" >
-                                <p class="no" id="design_no"> '.$design_no[0].'</p>
+                                '.$design_no[0].'
                             </td>
+                              <td id="product_id">'.$data["id"].'</td>
                         </tr>';
                         }
                     }
                     else {
-                        echo 'failed';
+                        echo 'No Cart data !';
                     }
                             ?>
                         
@@ -297,7 +294,11 @@
             </div>
             <div class="cart-btn">
                 <div class="cart-btn-left">
-                    <a href="#" class="main-btn">Proceed With Order</a>
+                    <a class="main-btn text-white" id="order-btn">Proceed With Order</a>
+                </div>
+
+                 <div class="cart-btn-left">
+                    <a class="main-btn text-white">Grand Total = <span id="total">12312</span></a>
                 </div>
                
             </div>
@@ -464,6 +465,31 @@
         </div>
     </div>
 
+
+    <div id="myModal" class="modal" >
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- <span onclick="document.getElementById('myModal').style.display='block'" class="close">vvv</span> -->
+                    <div class="container">
+                    <div class="row text-center">
+                        <div class="col-md-12" style="margin-top: 5%;">
+                            <h2 class="popop" style="padding:5px 0;">THANK YOU FOR YOUR ORDER</h2>
+                            <hr style="border-top: 4px solid rgb(229, 0, 0);width: 60%;padding:5px 0;margin: auto;">
+                            <h4 style="color: black;font-weight: 500;">We will get back to you for sale.</h4>
+                            <br>
+                            <a href="" role="button" onclick="document.getElementById('myModal').style.display='block'" class="btn btn-primary text-white">Close</a>
+                        </div>
+
+                    </div>
+                        
+                    </div>
+        
+                    
+                </div>
+            
+            </div>
     <!--====== Product Quick View Ends ======-->
 
     <!--====== Overlay Start ======-->
@@ -473,12 +499,70 @@
             $(".product-delete").each(function(){
                 $(this).click(function(){
                     var tr = this.parentElement.parentElement;
-                    var fabric_type = tr.getElementById("fabric_type")[0];
-                    alert(fabric_type);
-                })
-            })
-        })
+                    var fabric_name = tr.getElementsByTagName('td')[1].childNodes;
+                    fabric_name = fabric_name[1].childNodes;
+                    fabric_name = fabric_name[3].innerHTML;
+                    var fabric_type = tr.getElementsByTagName('td')[2].innerHTML;
+                    var design_no = tr.getElementsByTagName('td')[5].innerHTML;
+                    var product_id = tr.getElementsByTagName('td')[6].innerHTML;
+                    $.ajax({
+                        type : "POST",
+                        url : "delete_cart.php",
+                        data : {
+                            fabric_name : fabric_name.trim(),
+                            fabric_type : fabric_type.trim(),
+                            design_no : design_no.trim(),
+                            product_id : product_id.trim()
+                        },
+                        success : function(response){
+                            if(response.trim() == 'success')
+                            {
+                                tr.remove();
+                            }
 
+                        }
+                    })
+                });
+            });
+        });
+
+
+  $(document).ready(function(){
+        var add = 0;
+            $(".product-delete").each(function(){
+                    var tr = this.parentElement.parentElement;
+                    var price = tr.getElementsByTagName('td')[4].innerHTML;
+                    add_num = Number(price.trim());
+                    add += add_num;
+            });
+            $("#total").html(add);
+  });
+
+  $(document).ready(function(){
+        $("#order-btn").click(function(){
+            var username = $("#username").html();
+            var total_price = $("#total").html();
+            var id = $("#product_id").html();
+            $.ajax({
+                type : "POST",
+                url : "proceed_order.php",
+                data : {
+                    username : username,
+                    total_price : total_price,
+                    id : id
+                },
+                success : function(response){
+                    if(response.trim() == "Order add Success")
+                    {
+                        document.getElementById('myModal').style.display='block';
+                    }
+                    
+                }
+            })
+        });
+  });
+            
+       
 
     </script>
     <div class="overlay"></div>
